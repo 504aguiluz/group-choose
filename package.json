@@ -1,0 +1,27 @@
+{
+  "name": "group-choose",
+  "version": "1.0.0",
+  "description": "movie choose v1.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/504aguiluz/group-choose.git"
+  },
+  "author": "mfa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/504aguiluz/group-choose/issues"
+  },
+  "homepage": "https://github.com/504aguiluz/group-choose#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "method-override": "^3.0.0"
+  }
+}
