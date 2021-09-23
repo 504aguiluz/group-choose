@@ -4,8 +4,13 @@ const methodOverride = require('method-override')
 const session = require('express-session')
 require('dotenv').config()
 
-// connecing .envs
+// connecting .envs
 const PORT = process.env.PORT
+
+// requiring models
+const User = require('./models/users')
+const Movie = require('./models/movies')
+const List = require('./models/lists')
 
 // static assets
 app.use(express.static('public'))

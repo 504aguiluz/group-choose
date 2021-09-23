@@ -16,6 +16,45 @@ router.get('/new', (req, res) => {
 
 // seed
 router.get('/seed', (req, res) => {
+    
+    Movie.create([
+        {
+            title: 'Rambo',
+            genre: 'Action',
+            submittedBy: 'Matt',
+            yearMade: 1985,
+            director: 'George P. Cosmatos',
+            actors: ['Sylvestor Stallone'], 
+            tags: ['80s action', 'kill em all', 'rad'],
+            rating: 7
+        }, 
+        {
+            title: 'Stalker',
+            genre: 'Thriller',
+            submittedBy: 'Nic',
+            yearMade: 1979,
+            director: 'Andrei Tarkovsky',
+            actors: ['Alisa Freyndlikh', 'Aleksandr Kaydanovskiy'], 
+            tags: ['heavy', 'masterpiece', 'russian'],
+            rating: 10
+        },
+        {
+            title: "Pee-Wee's Big Adventure",
+            genre: "Comedy",
+            submittedBy: "Jenn",
+            yearMade: 1985,
+            director: 'Tim Burton',
+            actors: ['Paul Ruben', 'Elizabeth Daily'], 
+            tags: ['weird', 'zany'],
+            rating: 9
+        }
+    ], (err, data) => {
+        if(err){
+            console.log(err)
+        }
+        res.redirect('/movies')
+    })
+    
     res.send('movies seed')
 })
 
