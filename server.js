@@ -35,6 +35,21 @@ db.on('disconnected', () => {console.log('mongo disconnected')})
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 
+// // SESSIONS
+// const SESSION_SECRET = process.env.SESSION_SECRET
+
+// app.use(
+//     session({
+//         secret: SESSION_SECRET,
+//         // DOCS - https://www.nmpjs.com/package/express-session#resave
+//         resave: false,
+//         saveUninitialized: false,
+//     }))
+
+
+// console.log(`Here's SESSION_SECRET`)
+// console.log(SESSION_SECRET)
+
 // // CUSTOM MIDDLEWARE 
 // // custom middleware to make currentUser available as a local variable on all routes
 // app.use((req, res, next) => {

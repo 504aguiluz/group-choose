@@ -6,12 +6,16 @@ const Movie = require('../models/movies')
 
 // index
 router.get('/', (req, res) => {
-    res.send('movies index')
+    Movie.find({}, (err, allMovies) => {
+        res.render('movies/movies-index.ejs', {
+            movies: allMovies
+        })
+    })
 })
 
 // new
 router.get('/new', (req, res) => {
-    res.send('movies new')
+    res.render('movies/movies-new.ejs')
 })
 
 // seed
@@ -60,27 +64,66 @@ router.get('/seed', (req, res) => {
 
 // show
 router.get('/:id', (req, res) => {
-    res.send('movies show')
+    Movie.findById(req.params.id, (error, foundMovie)=>{
+        res.render('movies/movies-show.ejs', {
+            movie: foundMovie
+        })
+    })
 })
 
 // create
 router.post('/', (req, res) => {
-    res.send('CREATE MOVIE')
+    Movie.create(req.body, (error,) => {
+        if(error){
+            console.log(error)
+            res.send(error)
+        } else {
+            res.redirect('/movies')
+        }
+    })
 })
 
 // delete
 router.delete('/:id', (req, res) => {
-    res.send('DELETE MOVIE')
+    Movie.findByIdAndDelete(req.params.id, (error, deletedMovie) => {
+        if(error){
+            console.log(error)
+            res.send(error)
+        } else {
+            res.redirect('/movies')
+        }
+    })
 })
 
 // edit
 router.get('/:id/edit', (req, res) => {
-    res.send('edit movie')
+    Movie.findById(req.params.id, (error, foundMovie) => {
+        if (error){
+            console.log(error)
+            res.send(error)
+        } else {
+            res.render('movies/movies-edit.ejs')
+        }
+    })
 })
 
 // update
 router.put('/:id', (req, res) => {
-    res.send('UPDATE MOVIE')
+    Movie.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        {
+            new:true,
+        },
+        ( error, updatedMovie) => {
+            if(error) {
+                console.log(error)
+                res.send(error)
+            } else {
+                res.redirect('/movies')
+            }
+        }
+    )
 })
 
 module.exports = router
