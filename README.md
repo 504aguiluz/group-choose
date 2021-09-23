@@ -38,25 +38,25 @@ An app to help groups decide on which movie to watch
 }
 
 ## ROUTES
-> register: (/movieschoose/register) <br />
-> login: (/movieschoose/login) <br />
-> about: (/movieschoose/about) <br />
+> register: (/users/register) <br />
+> login: (/users/login) <br />
+> about: (/about) <br />
 #### CREATE
-> movie lists NEW:(/movieschoose/movielists/new) <br />
-> movie lists POST:(/movieschoose/movielists/) <br />
+> movie lists NEW:(/lists/new) <br />
+> movie lists POST:(/lists/) <br />
 #### READ
-> movie lists INDEX: (/movieschoose/movielists/) <br />
-> movie lists SHOW:(/movieschoose/movielists/:id) <br />
-> movies INDEX: (/movieschoose/movies/) <br />
+> movie lists INDEX: (/lists/) <br />
+> movie lists SHOW:(/lists/:id) <br />
+> movies INDEX: (/movies/) <br />
 #### UPDATE
-> movies EDIT: (/movieschoose/movies/:id/edit) <br />
-> movies UPDATE: (/movieschoose/movies/:id/) <br />
+> movies EDIT: (/movies/:id/edit) <br />
+> movies UPDATE: (/movies/:id/) <br />
 #### DELETE
-> movies DELETE: (/movieschoose/movies/:id/delete) <br />
+> movies DELETE: (/movies/:id/) <br />
 ## STRETCH ROUTES
-> group choices NEW: (/movieschoose/groupchoices/new) <br />
-> group choices INDEX: (/movieschoose/groupchoices/) <br />
-> group choices SHOW: (/movieschoose/groupchoices/:id) <br />
+> group choices NEW: (/groupchoices/new) <br />
+> group choices INDEX: (/groupchoices/) <br />
+> group choices SHOW: (/groupchoices/:id) <br />
 
 
 ## WIREFRAMES

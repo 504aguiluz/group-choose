@@ -30,21 +30,32 @@ db.on('disconnected', () => {console.log('mongo disconnected')})
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 
-// CUSTOM MIDDLEWARE 
-// custom middleware to make currentUser available as a local variable on all routes
-app.use((req, res, next) => {
-    res.locals.currentUser = req.session.currentUser
-    next()
-})
+// // CUSTOM MIDDLEWARE 
+// // custom middleware to make currentUser available as a local variable on all routes
+// app.use((req, res, next) => {
+//     res.locals.currentUser = req.session.currentUser
+//     next()
+// })
 
-// allows local messages across routes
-app.use((req, res, next) => {
-    res.locals.message = req.session.message
-    // make the session message available locally to your routes
-    req.session.message = ''
-    // reset the session message after each request
-    next()
-})
+// // allows local messages across routes
+// app.use((req, res, next) => {
+//     res.locals.message = req.session.message
+//     // make the session message available locally to your routes
+//     req.session.message = ''
+//     // reset the session message after each request
+//     next()
+// })
+
+// IMPORTED CONTROLLERS
+const userController = require('./controllers/userController')
+app.use('/users', userController)
+
+const movieController = require('./controllers/movieController')
+app.use('/movies', movieController)
+
+const listController = require('./controllers/listController')
+app.use('/lists', listController)
+
 
 
 // listener
