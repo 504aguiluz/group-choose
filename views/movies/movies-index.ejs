@@ -2,15 +2,17 @@
     <h1>movies-index!</h1>
 
 <table>
-<% for (const key of movies) { %>
+<% for (let i = 0; i < movies.length; i++) { %>
     <tr>
-        <th><%=key%></th>
+        (keys of each object)
+        <th><%=Object.keys(movies[i])%></th>
     </tr>
-<% } %>
+    <tr>
+        <td>(corresponding values)(corresponding values)(corresponding values)</td>
+    </tr>
+    <% } %>
 
 </table>
-
-
 
 
 <%- include('../partials/footer.ejs') %>    
