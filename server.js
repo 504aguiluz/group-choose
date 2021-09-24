@@ -35,36 +35,41 @@ db.on('disconnected', () => {console.log('mongo disconnected')})
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 
+
 // // SESSIONS
 // const SESSION_SECRET = process.env.SESSION_SECRET
 
 // app.use(
-//     session({
-//         secret: SESSION_SECRET,
-//         // DOCS - https://www.nmpjs.com/package/express-session#resave
-//         resave: false,
-//         saveUninitialized: false,
-//     }))
-
-
-// console.log(`Here's SESSION_SECRET`)
-// console.log(SESSION_SECRET)
-
-// // CUSTOM MIDDLEWARE 
-// // custom middleware to make currentUser available as a local variable on all routes
-// app.use((req, res, next) => {
-//     res.locals.currentUser = req.session.currentUser
-//     next()
-// })
-
-// // allows local messages across routes
-// app.use((req, res, next) => {
-//     res.locals.message = req.session.message
-//     // make the session message available locally to your routes
-//     req.session.message = ''
-//     // reset the session message after each request
-//     next()
-// })
+    //     session({
+        //         secret: SESSION_SECRET,
+        //         // DOCS - https://www.nmpjs.com/package/express-session#resave
+        //         resave: false,
+        //         saveUninitialized: false,
+        //     }))
+        
+        
+        // console.log(`Here's SESSION_SECRET`)
+        // console.log(SESSION_SECRET)
+        
+        // // CUSTOM MIDDLEWARE 
+        // // custom middleware to make currentUser available as a local variable on all routes
+        // app.use((req, res, next) => {
+            //     res.locals.currentUser = req.session.currentUser
+            //     next()
+            // })
+            
+            // // allows local messages across routes
+            // app.use((req, res, next) => {
+                //     res.locals.message = req.session.message
+                //     // make the session message available locally to your routes
+                //     req.session.message = ''
+                //     // reset the session message after each request
+                //     next()
+                // })
+// about
+app.get('/about', (req, res) => {
+    res.render('about.ejs')
+})
 
 // IMPORTED CONTROLLERS
 const userController = require('./controllers/userController')

@@ -1,40 +1,81 @@
 const express = require('express')
 const router = express.Router()
 const Lists = require('../controllers/listController')
+const List = require('../models/lists')
 
 // index
 router.get('/', (req, res) => {
-    res.send('lists index')
+    List.find({}, (err, allLists) => {
+        res.render('lists/lists-index.ejs', {
+            lists: allLists
+        })
+    })
 })
 
 // new
 router.get('/new', (req, res) => {
-    res.send('lists new')
+    res.render('lists/lists-new.ejs')
 })
 
 // show
 router.get('/:id', (req, res) => {
-    res.send('lists show')
+    List.findById(req.params.id, (error, foundList) => {
+        res.render('lists-show.ejs', {
+            list: foundList
+        })
+    })
 })
 
 // create
 router.post('/', (req, res) => {
-    res.send('CREATE LISTS')
+    List.create(req.body, (error, createdList) => {
+        if(error){
+            console.log(error)
+            res.send(error)
+        } else {
+            res.redirect('/lists')
+        }
+    })
 })
 
 // delete
 router.delete('/:id', (req, res) => {
-    res.send('DELETE LISTS')
+    List.findByIdAndDelete(req.params.id, (error, deletedList) => {
+        if(error){
+            console.log(error)
+            res.send(error)
+        } else {
+            res.redirect('/lists')
+        }
+    })
 })
 
 // edit
 router.get('/:id/edit', (req, res) => {
-    res.send('edit lists')
+    List.findById(req.params.id, (error, foundList) => {
+        if(error){
+            console.log(error)
+            res.send(error)
+        } else {
+            res.redirect('/lists')
+        }
+    })
 })
 
 // update
 router.put('/:id', (req, res) => {
-    res.send('UPDATE LISTS')
+    List.findByIdAndUpdate(req.params.id,req.body, {
+        new:true
+    },
+    (error, updatedList) => {
+        if(error){
+            console.log(error)
+            res.send(error)
+        } else {
+            res.redirect('/lists')
+        }
+    }
+    )
 })
 
 
