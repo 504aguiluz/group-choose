@@ -59,7 +59,7 @@ router.get('/seed', (req, res) => {
         res.redirect('/movies')
     })
     
-    res.send('movies seed')
+    // res.send('movies seed')
 })
 
 // show

@@ -1,3 +1,16 @@
 <%- include('../partials/header.ejs') %> 
     <h1>movies-index!</h1>
+
+<table>
+<% for (const key of movies) { %>
+    <tr>
+        <th><%=key%></th>
+    </tr>
+<% } %>
+
+</table>
+
+
+
+
 <%- include('../partials/footer.ejs') %>    
