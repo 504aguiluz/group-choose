@@ -1,3 +1,18 @@
 <%- include('../partials/header.ejs') %> 
     <h1>movies-index!</h1>
+
+<table>
+<% for (let i = 0; i < movies.length; i++) { %>
+    <tr>
+        (keys of each object)
+        <th><%=Object.keys(movies[i])%></th>
+    </tr>
+    <tr>
+        <td>(corresponding values)(corresponding values)(corresponding values)</td>
+    </tr>
+    <% } %>
+
+</table>
+
+
 <%- include('../partials/footer.ejs') %>    
