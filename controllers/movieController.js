@@ -73,7 +73,7 @@ router.get('/:id', (req, res) => {
 
 // create
 router.post('/', (req, res) => {
-    Movie.create(req.body, (error,) => {
+    Movie.create(req.body, (error, createdMovie) => {
         if(error){
             console.log(error)
             res.send(error)
@@ -102,7 +102,10 @@ router.get('/:id/edit', (req, res) => {
             console.log(error)
             res.send(error)
         } else {
-            res.render('movies/movies-edit.ejs')
+            res.render('movies/movies-edit.ejs', {
+                movie: foundMovie
+                    
+            })
         }
     })
 })

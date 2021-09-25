@@ -1,0 +1,53 @@
+<%- include('../partials/header.ejs') %> 
+
+<h2><%= movie.title %></h2>
+
+<form action="/movies/<%=movie.id%>?_method=PUT" method="POST">
+    title:
+    <input 
+    type="text" 
+    name="title" 
+    value="<%= movie.title %>"> 
+    <br>
+    genre:
+    <input 
+    type="text" 
+    name="genre" 
+    value="<%= movie.genre %>"> 
+    <br>
+    year made:
+    <input 
+    type="text" 
+    name="yearMade" 
+    value="<%= movie.yearMade %>"> 
+    <br>
+    director:
+    <input 
+    type="text" 
+    name="director" 
+    value="<%= movie.director %>"> 
+    <br>
+    tags:
+    <input 
+    type="text" 
+    name="tags" 
+    value="<%= movie.tags %>"> 
+    <br>
+    submitted by:
+    <input 
+    type="text" 
+    name="submittedBy" 
+    value="<%= movie.submittedBy %>"> 
+    <br>
+    rating:
+    <input 
+    type="text" 
+    name="rating" 
+    value="<%= movie.rating %>"> 
+    <br>
+    <input type="submit" value="update movie">
+</form>
+
+<%- include('../partials/footer.ejs') %> 
+
+            
