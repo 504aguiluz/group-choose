@@ -9,6 +9,9 @@
             <th>tags:</th>
             <th>submittedBy:</th>
             <th>rating:</th>
+            <th>edit:</th>
+            <th>add to list:</th>
+            <th>delete:</th>
         </tr>
         <tr>
             <td><%=movie.genre%></td>
@@ -19,9 +22,25 @@
             <td><%=movie.rating%></td>
         <td>
             <a href="/movies/<%= movie.id %>/edit">[edit]</a>
-            <form action="/lists" method="POST">
-            <input type="submit" value="add to list">
-            </form>
+            <td>  
+                <form action="/lists/addtolist" method="POST">
+                        <select name="listId">
+                            <option value="1">select list</option>
+                            <% for( let i = 0; i < lists.length; i++){ %> 
+                                <option value="<%= lists[i].id%>">
+                                    <%= lists[i].name %> 
+                                </option>
+                                <% } %> 
+                        </select>
+                        <input type="hidden" value="<%= movie.id %>" name="movieId">
+                        <input type="submit" value="add to list">
+                </form>
+            </td>
+            <td>
+                <form action="/movies/<%= movie.id%>?_method=DELETE" method="POST">
+                    <input type="submit" value="delete">
+                </form>
+            </td>
         </td>
         </tr>
     </table>

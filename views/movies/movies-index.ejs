@@ -1,11 +1,9 @@
 <%- include('../partials/header.ejs') %> 
     <h1>movies</h1>
 
-
 <table>
 <% for (let i = 0; i < movies.length; i++) { %>
     <tr>
-        
         <th>title:</th>
         <th>genre:</th>
         <th>submittedBy:</th>
@@ -16,7 +14,6 @@
         <th>edit:</th>
         <th>add to list:</th>
         <th>delete:</th>
-        
     </tr>
     <tr>
         <td> <a href="/movies/<%= movies[i].id%>"><%=movies[i].title%></a></td>
@@ -29,27 +26,23 @@
         <td>
             <a href="/movies/<%= movies[i].id %>/edit">[edit]</a>
         </td>
-        <td>
-           
-            
-            <form action="">
-                    <select value="movie">
-                        <option value="1">select 1</option>
+        <td>  
+            <form action="/lists/addtolist" method="POST">
+                    <select name="listId">
+                        <option value="1">select list</option>
                         <% for( let i = 0; i < lists.length; i++){ %> 
-                            <option value="1">
+                            <option value="<%= lists[i].id%>">
                                 <%= lists[i].name %> 
                             </option>
                             <% } %> 
                     </select>
+                    <input type="hidden" value="<%= movies[i].id %>" name="movieId">
                     <input type="submit" value="add to list">
             </form>
-
-    
-            
         </td>
         <td>
             <form action="/movies/<%= movies[i].id%>?_method=DELETE" method="POST">
-                <input type="submit" value="-">
+                <input type="submit" value="delete movie">
             </form>
         </td>
     </tr>

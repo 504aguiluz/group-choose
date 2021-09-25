@@ -70,8 +70,11 @@ router.get('/seed', (req, res) => {
 // show
 router.get('/:id', (req, res) => {
     Movie.findById(req.params.id, (error, foundMovie)=>{
-        res.render('movies/movies-show.ejs', {
-            movie: foundMovie
+        List.find({}, (err, allLists) => {
+            res.render('movies/movies-show.ejs', {
+                lists: allLists,
+                movie: foundMovie
+        })
         })
     })
 })

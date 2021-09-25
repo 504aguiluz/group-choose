@@ -35,7 +35,10 @@ db.on('disconnected', () => {console.log('mongo disconnected')})
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 
-
+app.use((req, res, next)=>{
+    console.log(`${req.method}-${req.originalUrl}`)
+    next()
+})
 // // SESSIONS
 // const SESSION_SECRET = process.env.SESSION_SECRET
 

@@ -1,36 +1,48 @@
 <%- include('../partials/header.ejs') %> 
     <h1>lists-show!</h1>
-    <h2><%= list.name %></h2>
+    <h2><%= list.name %> <a href="/lists/<%= list.id %>/edit">[edit]</a></h2>
+    
     <table>
         <tr>
-            <th>submittedBy:</th>
-            <th>date created:</th>
+            <th>title:</th>
+            <th>genre:</th>
+            <th>year:</th>
+            <th>director:</th>
+            <th>actors:</th>
+            <th>tags:</th>
+            <th>rating:</th>
         </tr>
+        <% for(let i = 0; i < list.movies.length; i++) { %> 
         <tr>
-            <td><%= list.submittedBy %></td>
-            <td><%= list.createdAt %></td>
-            <td><%=list.movie%></td>
-        <td>
-            <a href="/lists/<%= list.id %>/edit">[edit]</a>
-        </td>
-        <td>
-            <form action="/lists/<%= list.id%>?_method=DELETE" method="POST">
-                <input type="submit" value="-">
-            </form>
-        </td>
+            <td>
+                    <%=list.movies[i].title%>
+            </td>
+            <td>
+                    <%=list.movies[i].genre%>
+            </td>
+            <td>
+                    <%=list.movies[i].yearMade%>
+            </td>
+            <td>
+                    <%=list.movies[i].director%>
+            </td>
+            <td>
+                    <%=list.movies[i].actor%>
+            </td>
+            <td>
+                    <%=list.movies[i].tags%>
+            </td>
+            <td>
+                    <%=list.movies[i].rating%>
+            </td>
+                <!-- <td><%= list.createdAt %></td> -->
+            <td>
+                <form action="/lists/<%= list.id %>/removefromlist?_method=PUT" method="POST">
+                    <input type="hidden" value="<%= list.movies[i].id %>" name="movieId">
+                    <input type="submit" value="remove from list">
+                </form>
+            </td>
         </tr>
-        <% for(let i = 0; i < list.length; i++) { %>
-            <tr>
-                <th><%= list.movie[i].title %> </th>
-                <td>
-                    <a href="/movies/<%= list[i].movie.id %>/edit">[edit]</a>
-                </td>
-                <td>
-                    <form action="/lists/<%= list.id%>?_method=DELETE" method="POST">
-                        <input type="submit" value="-">
-                    </form>
-                </td>
-            </tr>
         <% } %> 
     </table>
 <%- include('../partials/footer.ejs') %>  

@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const Movie = require('../models/movies')
 const Lists = require('../controllers/listController')
 const List = require('../models/lists')
 
@@ -19,7 +20,7 @@ router.get('/new', (req, res) => {
 
 // show
 router.get('/:id', (req, res) => {
-    List.findById(req.params.id, (error, foundList) => {
+    List.findById(req.params.id).populate('movies').exec((error, foundList) => {
         if(error){
             console.log(error)
             res.send(error)
@@ -44,16 +45,44 @@ router.post('/', (req, res) => {
 })
 
 // add movie to list
-router.post('/lists/:id/movies/:id/add-movie', (req, res) => {
+router.post('/addtolist', (req, res) => {
     
-    
-    List.create(req.body, (error, createdList) => {
+    console.log(req.body)
+    List.findById(req.body.listId, (error, foundList) => {
+        
         if(error){
             console.log(error)
             res.send(error)
         } else {
-            res.redirect('/lists')
+            foundList.movies.push(req.body.movieId)
+            // console.log(req.body)
+            foundList.save()
+            res.redirect('/movies')
         }
+    })
+    
+})
+
+// remove from list
+router.put('/:id/removefromlist', (req, res) => {
+
+    List.findById(req.params.id, (error, foundList) => {
+        // const indexOfMovie = foundList.movies.indexOf(req.body.movieId)
+
+        if (error)return console.log(error)
+
+        Movie.findById(req.body.movieId, (error, foundMovie) => {
+            if (error)return console.log(error)
+            
+            foundList.movies.remove(foundMovie)
+            foundList.save()
+            res.redirect(`/lists/${req.params.id}`)
+        })
+        // } else {
+        //     foundList.movies.splice(req.body.movieId, 1)
+        //     foundList.save()
+        //     res.redirect('/movies')
+        // }
     })
 })
 

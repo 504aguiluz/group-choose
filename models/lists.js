@@ -10,7 +10,7 @@ const listSchema = new Schema({
     },
     movies: [{
         type: Schema.Types.ObjectId,
-        ref: 'Movies'
+        ref: 'Movie'
     }],
     users: [{
         type: Schema.Types.ObjectId,
