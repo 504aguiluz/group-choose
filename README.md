@@ -100,7 +100,7 @@ group choices show: <br/>
 > Adhere to MVC methodologies.
 > Deploy online via Heroku.
 
-### STREATCH GOALS
+### STRETCH GOALS
 > Full professional-quality styling
 > Use a CSS framework
 > Use EJS Partials

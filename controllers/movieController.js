@@ -1,15 +1,20 @@
 const express = require('express')
+const List = require('../models/lists')
 const router = express.Router()
 const Movie = require('../models/movies')
 
 // MOVIE CONTROLLERS
 
 // index
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
+
     Movie.find({}, (err, allMovies) => {
-        res.render('movies/movies-index.ejs', {
+        List.find({}, (err, allLists) => {
+            res.render('movies/movies-index.ejs', {
+            lists: allLists,
             movies: allMovies
         })
+    })
     })
 })
 

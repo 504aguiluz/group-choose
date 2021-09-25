@@ -3,19 +3,34 @@
     <h2><%= list.name %></h2>
     <table>
         <tr>
-            <th>submittedBy: <%= list.submittedBy %> </th>
-            <th>date created: <%= list.createdAt %></th>
+            <th>submittedBy:</th>
+            <th>date created:</th>
         </tr>
         <tr>
+            <td><%= list.submittedBy %></td>
+            <td><%= list.createdAt %></td>
             <td><%=list.movie%></td>
         <td>
             <a href="/lists/<%= list.id %>/edit">[edit]</a>
         </td>
         <td>
-            <form action="/lists/<%= lists[i].id%>?_method=DELETE" method="POST">
+            <form action="/lists/<%= list.id%>?_method=DELETE" method="POST">
                 <input type="submit" value="-">
             </form>
         </td>
         </tr>
+        <% for(let i = 0; i < list.length; i++) { %>
+            <tr>
+                <th><%= list.movie[i].title %> </th>
+                <td>
+                    <a href="/movies/<%= list[i].movie.id %>/edit">[edit]</a>
+                </td>
+                <td>
+                    <form action="/lists/<%= list.id%>?_method=DELETE" method="POST">
+                        <input type="submit" value="-">
+                    </form>
+                </td>
+            </tr>
+        <% } %> 
     </table>
 <%- include('../partials/footer.ejs') %>  

@@ -1,6 +1,7 @@
 <%- include('../partials/header.ejs') %> 
     <h1>movies</h1>
 
+
 <table>
 <% for (let i = 0; i < movies.length; i++) { %>
     <tr>
@@ -29,9 +30,22 @@
             <a href="/movies/<%= movies[i].id %>/edit">[edit]</a>
         </td>
         <td>
-            <form action="/lists" method="POST">
-                <input type="submit" value="+">
+           
+            
+            <form action="">
+                    <select value="movie">
+                        <option value="1">select 1</option>
+                        <% for( let i = 0; i < lists.length; i++){ %> 
+                            <option value="1">
+                                <%= lists[i].name %> 
+                            </option>
+                            <% } %> 
+                    </select>
+                    <input type="submit" value="add to list">
             </form>
+
+    
+            
         </td>
         <td>
             <form action="/movies/<%= movies[i].id%>?_method=DELETE" method="POST">
@@ -42,6 +56,5 @@
     <% } %>
 
 </table>
-
 
 <%- include('../partials/footer.ejs') %>    

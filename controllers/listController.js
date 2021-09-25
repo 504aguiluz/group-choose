@@ -20,14 +20,33 @@ router.get('/new', (req, res) => {
 // show
 router.get('/:id', (req, res) => {
     List.findById(req.params.id, (error, foundList) => {
-        res.render('lists-show.ejs', {
-            list: foundList
-        })
+        if(error){
+            console.log(error)
+            res.send(error)
+        } else {
+            res.render('lists/lists-show.ejs', {
+                list: foundList
+            })
+        }
     })
 })
 
 // create
 router.post('/', (req, res) => {
+    List.create(req.body, (error, createdList) => {
+        if(error){
+            console.log(error)
+            res.send(error)
+        } else {
+            res.redirect('/lists')
+        }
+    })
+})
+
+// add movie to list
+router.post('/lists/:id/movies/:id/add-movie', (req, res) => {
+    
+    
     List.create(req.body, (error, createdList) => {
         if(error){
             console.log(error)
@@ -57,7 +76,9 @@ router.get('/:id/edit', (req, res) => {
             console.log(error)
             res.send(error)
         } else {
-            res.redirect('/lists')
+            res.render('lists/lists-edit.ejs', {
+                list: foundList
+            })
         }
     })
 })

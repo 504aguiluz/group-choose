@@ -1,0 +1,25 @@
+<%- include('../partials/header.ejs') %> 
+
+<title>LIST EDIT</title>
+<h2>edit list</h2>
+
+<form action="/lists/<%= list.id %>?_method=PUT" method="POST">
+    name:
+    <input 
+    type="text"
+    name="name" 
+    value="<%= list.name %> ">
+    submitted by:
+    <input 
+    type="text"
+    name="submittedBy" 
+    value="<%= list.submittedBy %> ">
+    last updated:
+    <input 
+    type="text"
+    name="updatedAt" 
+    value="<%= list.updatedAt %> ">
+    <input type="submit" value="update list">
+</form>
+
+<%- include('../partials/footer.ejs') %> 
