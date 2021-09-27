@@ -15,7 +15,7 @@
         <% for(let i = 0; i < list.movies.length; i++) { %> 
         <tr>
             <td>
-                    <%=list.movies[i].title%>
+                   <a href="/movies/<%= list.movies[i].id%>"><%=list.movies[i].title%></a> 
             </td>
             <td>
                     <%=list.movies[i].genre%>

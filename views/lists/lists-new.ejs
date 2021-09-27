@@ -1,8 +1,11 @@
 <%- include('../partials/header.ejs') %> 
-    <h1>create a list</h1>
-    <form action="/lists" method="POST">
-        name: <input type="text" name="name"> <br/>
-        submitted by: <input type="text" name="submittedBy"> <br/>
-        <input type="submit" value="create list">
-    </form>
+
+<title>create list</title>
+
+<h1>create a list</h1>
+<form action="/lists" method="POST">
+    name: <input type="text" name="name"> <br/>
+    submitted by: <input type="text" name="submittedBy"> <br/>
+    <input type="submit" value="create list">
+</form>
 <%- include('../partials/footer.ejs') %>  

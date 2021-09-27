@@ -1,14 +1,17 @@
 <%- include('../partials/header.ejs') %> 
-    <h2>create new movie</h2>
 
-    <form action="/movies" method="POST">
-        title: <input type="text" name="title">
-        genre: <input type="text" name="genre">
-        submitted by: <input type="text" name="submittedBy">
-        year made: <input type="text" name="yearMade">
-        director: <input type="text" name="director">
-        tags: <input type="text" name="tags">
-        rating: <input type="text" name="rating">
-        <input type="submit" value="create movie">
-    </form>
+<title>create movie</title>
+
+<h2>create new movie</h2>
+
+<form action="/movies" method="POST">
+    title: <input type="text" name="title">
+    genre: <input type="text" name="genre">
+    submitted by: <input type="text" name="submittedBy">
+    year made: <input type="text" name="yearMade">
+    director: <input type="text" name="director">
+    tags: <input type="text" name="tags">
+    rating: <input type="text" name="rating">
+    <input type="submit" value="create movie">
+</form>
 <%- include('../partials/footer.ejs') %>   

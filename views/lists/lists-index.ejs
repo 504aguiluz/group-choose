@@ -1,27 +1,30 @@
 <%- include('../partials/header.ejs') %> 
-    <h1>lists</h1>
-    <table>
-        <tr>
-            <th>list name:</th>
-            <th>submitted by:</th>
-            <th>date created:</th>
-        </tr>
-    <% for(let i = 0; i < lists.length; i++) { %>
+    
+<title>all lists</title>
+
+<h1>lists</h1>
+<table>
     <tr>
-        <td> <a href="/lists/<%=lists[i].id%>"> <%= lists[i].name %></a></td>
-        <td><%= lists[i].submittedBy %></td>
-        <td><%= lists[i].createdAt %></td>
-        <td><%= lists[i].movies %></td>
-        <td>
-            <a href="/lists/<%= lists[i].id %>/edit">[edit]</a>
-        </td>
-        <td>
-            <form action="/lists/<%= lists[i].id%>?_method=DELETE" method="POST">
-                <input type="submit" value="-">
-            </form>
-        </td>
+        <th>list name:</th>
+        <th>submitted by:</th>
+        <th>date created:</th>
     </tr>
-        
-    <% } %> 
-    </table>
+<% for(let i = 0; i < lists.length; i++) { %>
+<tr>
+    <td> <a href="/lists/<%=lists[i].id%>"> <%= lists[i].name %></a></td>
+    <td><%= lists[i].submittedBy %></td>
+    <td><%= lists[i].createdAt %></td>
+    <td><%= lists[i].movies %></td>
+    <td>
+        <a href="/lists/<%= lists[i].id %>/edit">[edit]</a>
+    </td>
+    <td>
+        <form action="/lists/<%= lists[i].id%>?_method=DELETE" method="POST">
+            <input type="submit" value="-">
+        </form>
+    </td>
+</tr>
+    
+<% } %> 
+</table>
 <%- include('../partials/footer.ejs') %>   
