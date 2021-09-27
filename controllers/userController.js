@@ -48,6 +48,7 @@ router.post('/login', (req, res) => {
 
             if(validLogin){
                 req.session.currentUser = foundUser
+                res.redirect('/about')
             } else {
                 res.send('Invalid username or password')
             }

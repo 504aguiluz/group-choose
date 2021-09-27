@@ -1,3 +1,22 @@
 <%- include('../partials/header.ejs') %> 
-    <h1>users-login!</h1>
+
+<title>login</title>
+
+<h1>login</h1>
+
+<form action="/users/login"
+method="POST">
+    <fieldset>
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username">
+    </fieldset>
+    <fieldset>
+        <label for="password">Password:</label>
+        <input type="password"
+        name="password" id="password">
+    </fieldset>
+    <input type="submit" value="log in">
+</form>
+<a href="/users/login">need to register first?</a>
+
 <%- include('../partials/footer.ejs') %>  
