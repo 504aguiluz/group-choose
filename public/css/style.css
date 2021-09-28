@@ -5,8 +5,8 @@ font-family: 'Ubuntu', sans-serif; */
 
 
 body {
-    background-color:rgb(64, 130, 173);
-    background-image: url('/css/imgs/body-bkg.jpg');
+    background-color:rgb(99, 148, 180);
+    /* background-image: url('/css/imgs/body-bkg.jpg'); */
     opacity: .90;
 }
 
