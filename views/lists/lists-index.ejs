@@ -3,24 +3,25 @@
 <title>all lists</title>
 
 <h1>lists</h1>
-<table>
-    <tr>
+<table class="table table-dark table-hover table-bordered table-sm">
+    <tr class="align-bottom">
         <th>list name:</th>
         <th>submitted by:</th>
         <th>date created:</th>
+        <th></th>
+        <th></th>
     </tr>
 <% for(let i = 0; i < lists.length; i++) { %>
-<tr>
+<tr class="align-bottom">
     <td> <a href="/lists/<%=lists[i].id%>"> <%= lists[i].name %></a></td>
     <td><%= lists[i].submittedBy %></td>
     <td><%= lists[i].createdAt %></td>
-    <td><%= lists[i].movies %></td>
     <td>
-        <a href="/lists/<%= lists[i].id %>/edit">[edit]</a>
+        <a href="/lists/<%= lists[i].id %>/edit"><button class="btn btn-outline-secondary">edit</button></a>
     </td>
     <td>
         <form action="/lists/<%= lists[i].id%>?_method=DELETE" method="POST">
-            <input type="submit" value="-">
+            <input type="submit" value="delete" class="btn btn-outline-secondary">
         </form>
     </td>
 </tr>

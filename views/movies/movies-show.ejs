@@ -1,9 +1,9 @@
 <%- include('../partials/header.ejs') %> 
     
     <title><%= movie.title %></title>
-    <h2><%= movie.title %></h2>
-    <table>
-        <tr>
+    <h1><%= movie.title %></h1>
+    <table class="table table-dark table-hover table-bordered table-sm">
+        <tr class="align-bottom">
             <th>genre:</th>
             <th>yearMade:</th>
             <th>director:</th>
@@ -14,7 +14,7 @@
             <th>add to list:</th>
             <th>delete:</th>
         </tr>
-        <tr>
+        <tr class="align-bottom">
             <td><%=movie.genre%></td>
             <td><%=movie.yearMade%></td>
             <td><%=movie.director%></td>
@@ -22,10 +22,10 @@
             <td><%=movie.submittedBy%></td>
             <td><%=movie.rating%></td>
         <td>
-            <a href="/movies/<%= movie.id %>/edit">[edit]</a>
+            <a href="/movies/<%= movie.id %>/edit"><button class="btn btn-outline-secondary">edit</button></a>
             <td>  
                 <form action="/lists/addtolist" method="POST">
-                        <select name="listId">
+                        <select name="listId" class="form-select form-select-sm">
                             <option value="1">select list</option>
                             <% for( let i = 0; i < lists.length; i++){ %> 
                                 <option value="<%= lists[i].id%>">
@@ -34,12 +34,12 @@
                                 <% } %> 
                         </select>
                         <input type="hidden" value="<%= movie.id %>" name="movieId">
-                        <input type="submit" value="add to list">
+                        <input type="submit" value="add to list" class="btn btn-outline-secondary">
                 </form>
             </td>
             <td>
                 <form action="/movies/<%= movie.id%>?_method=DELETE" method="POST">
-                    <input type="submit" value="delete">
+                    <input type="submit" value="delete" class="btn btn-outline-secondary">
                 </form>
             </td>
         </td>

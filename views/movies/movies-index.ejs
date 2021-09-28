@@ -4,21 +4,20 @@
 
 <h1>movies</h1>
 
-<table>
-<% for (let i = 0; i < movies.length; i++) { %>
-    <tr>
-        <th>title:</th>
-        <th>genre:</th>
-        <th>submittedBy:</th>
-        <th>yearMade:</th>
-        <th>director:</th>
-        <th>tags:</th>
-        <th>rating:</th>
-        <th>edit:</th>
-        <th>add to list:</th>
-        <th>delete:</th>
+<table class="table table-dark table-hover table-bordered table-sm">
+        <th >title</th>
+        <th>genre</th>
+        <th>user</th>
+        <th>year</th>
+        <th>director</th>
+        <th>tags</th>
+        <th>rating</th>
+        <th>edit</th>
+        <th>add to list</th>
+        <th></th>
     </tr>
-    <tr>
+    <% for (let i = 0; i < movies.length; i++) { %>
+    <tr class="align-bottom">
         <td> <a href="/movies/<%= movies[i].id%>"><%=movies[i].title%></a></td>
         <td><%=movies[i].genre%></td>
         <td><%=movies[i].submittedBy%></td>
@@ -27,11 +26,11 @@
         <td><%=movies[i].tags%></td>
         <td><%=movies[i].rating%></td>
         <td>
-            <a href="/movies/<%= movies[i].id %>/edit">[edit]</a>
+            <a href="/movies/<%= movies[i].id %>/edit"><button class="btn btn-outline-secondary">edit</button></a>
         </td>
         <td>  
             <form action="/lists/addtolist" method="POST">
-                    <select name="listId">
+                    <select name="listId" class="form-select form-select-sm">
                         <option value="1">select list</option>
                         <% for( let i = 0; i < lists.length; i++){ %> 
                             <option value="<%= lists[i].id%>">
@@ -40,12 +39,12 @@
                             <% } %> 
                     </select>
                     <input type="hidden" value="<%= movies[i].id %>" name="movieId">
-                    <input type="submit" value="add to list">
+                    <input type="submit" value="add to list" class="btn btn-outline-secondary btn-sm">
             </form>
         </td>
         <td>
             <form action="/movies/<%= movies[i].id%>?_method=DELETE" method="POST">
-                <input type="submit" value="delete movie">
+                <input type="submit" value="delete movie" class="btn btn-outline-secondary">
             </form>
         </td>
     </tr>

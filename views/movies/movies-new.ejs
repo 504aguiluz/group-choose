@@ -4,14 +4,61 @@
 
 <h2>create new movie</h2>
 
-<form action="/movies" method="POST">
-    title: <input type="text" name="title">
-    genre: <input type="text" name="genre">
-    submitted by: <input type="text" name="submittedBy">
-    year made: <input type="text" name="yearMade">
-    director: <input type="text" name="director">
-    tags: <input type="text" name="tags">
-    rating: <input type="text" name="rating">
-    <input type="submit" value="create movie">
+
+<form action="/movies" method="POST" class="col-sm-3 gy-2 gx-3 align-items-center">
+    <div class="col-auto">
+        <label class="visually" for="autoSizingInput">
+            <h4>title:</h4></label> 
+        <div class="col-sm-10">
+            <input type="text" name="title" class="form-control" id="autoSizingInput">
+        </div>
+    </div>
+    <div class="col-auto">
+        <label class="visually" for="autoSizingInput">
+            <h4>genre:</h4></label> 
+        <div class="col-sm-10">
+            <input type="text" name="genre" class="form-control" id="autoSizingInput">
+        </div>
+    </div>
+    <div class="col-auto">
+        <label class="visually" for="autoSizingInput">
+            <h4>submitted by:</h4></label> 
+        <div class="col-sm-10">
+            <input type="text" name="submittedBy" class="form-control" id="autoSizingInput">
+        </div>
+    </div>
+    <div class="col-auto">
+        <label class="visually" for="autoSizingInput">
+            <h4>year:</h4></label> 
+        <div class="col-sm-10">
+            <input type="text" name="yearMade" class="form-control" id="autoSizingInput">
+        </div>
+    </div>
+    <div class="col-auto">
+        <label class="visually" for="autoSizingInput">
+            <h4>director:</h4></label> 
+        <div class="col-sm-10">
+            <input type="text" name="director" class="form-control" id="autoSizingInput">
+        </div>
+    </div>
+    <div class="col-auto">
+        <label class="visually" for="autoSizingInput">
+            <h4>tags:</h4></label> 
+        <div class="col-sm-10">
+            <input type="text" name="tags" class="form-control" id="autoSizingInput">
+        </div>
+    </div>
+    <div class="col-auto">
+        <label class="visually" for="autoSizingInput">
+            <h4>rating:</h4></label> 
+        <div class="col-sm-10">
+            <input type="text" name="rating" class="form-control" id="autoSizingInput">
+        </div>
+    </div>
+    <div class="col-auto">
+            <div class="col-sm-10">
+                <input type="submit" value="create movie" class="btn btn-primary">
+            </div>
+        </div>
 </form>
 <%- include('../partials/footer.ejs') %>   
