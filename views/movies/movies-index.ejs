@@ -6,7 +6,7 @@
 
 <div class="dropdown">
     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-      default order
+    sort
     </a>
   
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -23,27 +23,18 @@
 <table class="table table-dark table-hover table-bordered table-sm">
         <th >title</th>
         <th>genre</th>
+        <th>add to list</th>
+        <th>rating</th>
         <th>user</th>
         <th>year</th>
         <th>director</th>
         <th>tags</th>
-        <th>rating</th>
         <th>edit</th>
-        <th>add to list</th>
-        <th></th>
     </tr>
     <% for (let i = 0; i < movies.length; i++) { %>
     <tr class="align-bottom">
         <td> <a href="/movies/<%= movies[i].id%>"><%=movies[i].title%></a></td>
         <td><%=movies[i].genre%></td>
-        <td><%=movies[i].submittedBy%></td>
-        <td><%=movies[i].yearMade%></td>
-        <td><%=movies[i].director%></td>
-        <td><%=movies[i].tags%></td>
-        <td><%=movies[i].rating%></td>
-        <td>
-            <a href="/movies/<%= movies[i].id %>/edit"><button class="btn btn-outline-secondary">edit</button></a>
-        </td>
         <td>  
             <form action="/lists/addtolist" method="POST">
                     <select name="listId" class="form-select form-select-sm">
@@ -58,10 +49,13 @@
                     <input type="submit" value="add to list" class="btn btn-outline-secondary btn-sm">
             </form>
         </td>
+        <td><%=movies[i].rating%></td>
+        <td><%=movies[i].submittedBy%></td>
+        <td><%=movies[i].yearMade%></td>
+        <td><%=movies[i].director%></td>
+        <td><%=movies[i].tags%></td>
         <td>
-            <form action="/movies/<%= movies[i].id%>?_method=DELETE" method="POST">
-                <input type="submit" value="delete movie" class="btn btn-outline-secondary">
-            </form>
+            <a href="/movies/<%= movies[i].id %>/edit"><button class="btn btn-outline-secondary">edit</button></a>
         </td>
     </tr>
     <% } %>
