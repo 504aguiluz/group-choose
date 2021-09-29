@@ -8,15 +8,28 @@ const Movie = require('../models/movies')
 // index
 router.get('/', async (req, res) => {
 
-    Movie.find({}, (err, allMovies) => {
+console.log(req.query)
+
+    let order = {}
+    let filter = {}
+
+    if (req.query.sort === 'asc' || req.query.sort === 'desc') { 
+        order = { title: req.query.sort}
+    }   else if (req.query.sort == 'genre') {
+        order = {genre: 'asc'}
+    }
+
+
+    Movie.find(filter).sort(order).exec((err, allMovies) => {
         List.find({}, (err, allLists) => {
             res.render('movies/movies-index.ejs', {
             lists: allLists,
-            movies: allMovies
+            movies: allMovies,
+            genre: allMovies.genre
         })
     })
-    })
-})
+    }
+)})
 
 // new
 router.get('/new', (req, res) => {
