@@ -15,8 +15,10 @@ console.log(req.query)
 
     if (req.query.sort === 'asc' || req.query.sort === 'desc') { 
         order = { title: req.query.sort}
-    }   else if (req.query.sort == 'genre') {
+    } else if (req.query.sort == 'genre') {
         order = {genre: 'asc'}
+    } else if (req.query.sort == 'rating') {
+        order = {rating: 'desc'}
     }
 
 
