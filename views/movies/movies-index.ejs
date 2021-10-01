@@ -2,10 +2,10 @@
 
 <title>all movies</title>
 
-<h1>movies</h1>
+<h1 class="display-6 index-heading">movies</h1>
 
 <div class="dropdown">
-    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="btn btn-info dropdown-toggle button-margin" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
     sort
     </a>
   
@@ -36,8 +36,9 @@
         <td> <a href="/movies/<%= movies[i].id%>"><%=movies[i].title%></a></td>
         <td><%=movies[i].genre%></td>
         <td>  
-            <form action="/lists/addtolist" method="POST">
-                    <select name="listId" class="form-select form-select-sm">
+            <form 
+            action="/lists/addtolist" method="POST">
+                    <select name="listId" class="form-select form-select-sm ">
                         <option value="1">select list</option>
                         <% for( let i = 0; i < lists.length; i++){ %> 
                             <option value="<%= lists[i].id%>">

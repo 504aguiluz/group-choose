@@ -12,12 +12,20 @@ body {
     
 }
 
+.index-heading {
+    margin: 20px 0px 20px 20px;
+}
+
 h1 {
     color: cornsilk;
 }
 
 h4 {
     color: whitesmoke;
+}
+
+tr {
+    opacity: .9;
 }
 
 th {
@@ -28,7 +36,7 @@ th {
 td {
     color:orange;
     font-family: 'Quicksand', sans-serif;
-    font-weight: 900;   
+    font-weight: 900; 
 }
 
 a {
@@ -42,7 +50,7 @@ a {
     border-radius: 20px;
 }
 
-form {
+.form-margin {
     margin: 40px;
 }
 
@@ -54,4 +62,9 @@ form {
 .display-5 {
     margin: 40px;
     color: rgb(60, 76, 105);
+}
+
+/* BUTTONS */
+.button-margin {
+    margin: 10px
 }

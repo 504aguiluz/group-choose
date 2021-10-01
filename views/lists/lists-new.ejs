@@ -8,14 +8,14 @@
     >create a list</h3>
     <form action="/lists" 
     method="POST"
-    class="lead">
+    class="lead form-margin">
         <fieldset
         class="my-4">        
             name: 
             <input 
             type="text" 
             name="name"
-            class="form-control"> <br/>
+            class="form-control" placeholder="new list name"> <br/>
         </fieldset>
         <fieldset
         class="my-4">
@@ -23,14 +23,14 @@
         <input 
         type="text" 
         name="submittedBy"
-        class="form-control"> <br/>
+        class="form-control" placeholder="your name"> <br/>
         </fieldset>
         <fieldset
         class="my-4">
             <input 
             type="submit" 
             value="create list"
-            class="form-control">
+            class="form-control btn btn-dark btn-l">
         </fieldset>
     </form>
 <%- include('../partials/form1footer.ejs') %>  

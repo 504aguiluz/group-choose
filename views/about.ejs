@@ -1,4 +1,28 @@
 <%- include('./partials/header.ejs') %> 
-<title>about</title>    
-<h1>about</h1>
+<title>About Movie-Choose</title>   
+<div class="jumbotron">
+    <div class="container d-flex justify-content-center form-cont" style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.76) 0%,rgb(176, 110, 179) 100%), url(../../css/imgs/body-bkg.jpg);">
+        <div class="col-md-7" >
+            <h1 class="display-5">About Movie-Choose</h1>
+            <p class="lead">Movie-Choose helps you choose movies(duh!). How? </p>
+            <br> 
+             <ul>
+                 <li>
+                    create a new list (like "70s retro sci-fi movies")
+                 </li>
+                 <li>
+                    then add movies to it (like Zardoz, Soylent Green and Forbidden Planet)
+                 </li>
+             </ul>  
+            <p>Then you and your friends can build movie lists together and take turns vetoing movies to help you choose! Now you never have to watch any of the Saw movies ever again, even if Derek keeps insisting they're great. </p>
+            <hr class="my-4">
+            <p>Here are some links to help you get started.</p>
+            <p class="lead">
+            <div class="d-flex justify-content-around">
+                <a class="btn btn-dark btn-lg" href="movies/new" role="button">add movie</a>
+                <a class="btn btn-dark btn-lg" href="lists/new" role="button">add list</a>
+            </div>
+            </p>
+        </div> 
+    </div> 
 <%- include('./partials/footer.ejs') %>  

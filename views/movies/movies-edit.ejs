@@ -1,51 +1,78 @@
 <%- include('../partials/header.ejs') %> 
 
-<h2><%= movie.title %></h2>
 
-<form action="/movies/<%=movie.id%>?_method=PUT" method="POST">
+<%- include('../partials/form1header.ejs') %>
+
+<h3 class="display-4"><%= movie.title %></h3>
+
+<form 
+action="/movies/<%=movie.id%>?_method=PUT" 
+method="POST"
+class="lead form-margin">
+<fieldset class="my-4">
     title:
     <input 
     type="text" 
     name="title" 
-    value="<%= movie.title %>"> 
+    class="form-control"
+    value="<%= movie.title %>"
+</fieldset>
     <br>
-    genre:
-    <input 
-    type="text" 
-    name="genre" 
-    value="<%= movie.genre %>"> 
+    <fieldset class="my-4">
+        genre:
+        <input 
+        type="text" 
+        name="genre"
+        class="form-control" 
+        value="<%= movie.genre %>"> 
+    </fieldset>
     <br>
-    year made:
-    <input 
-    type="text" 
-    name="yearMade" 
-    value="<%= movie.yearMade %>"> 
+    <fieldset class="my-4">
+        year made:
+        <input 
+        type="text" 
+        name="yearMade" 
+        class="form-control"
+        value="<%= movie.yearMade %>"> 
+    </fieldset>
     <br>
-    director:
-    <input 
-    type="text" 
-    name="director" 
-    value="<%= movie.director %>"> 
+    <fieldset class="my-4">
+        director:
+        <input 
+        type="text" 
+        name="director" 
+        class="form-control"
+        value="<%= movie.director %>"> 
+    </fieldset>
     <br>
-    tags:
-    <input 
-    type="text" 
-    name="tags" 
-    value="<%= movie.tags %>"> 
+    <fieldset class="my-4">
+        tags:
+        <input 
+        type="text" 
+        name="tags" 
+        class="form-control"
+        value="<%= movie.tags %>"> 
+    </fieldset>
     <br>
-    submitted by:
-    <input 
-    type="text" 
-    name="submittedBy" 
-    value="<%= movie.submittedBy %>"> 
+    <fieldset class="my-4">
+        submitted by:
+        <input 
+        type="text" 
+        name="submittedBy" 
+        class="form-control"
+        value="<%= movie.submittedBy %>"> 
+    </fieldset>
     <br>
-    rating:
-    <input 
-    type="text" 
-    name="rating" 
-    value="<%= movie.rating %>"> 
+    <fieldset class="my-4">
+        rating:
+        <input 
+        type="text" 
+        name="rating" 
+        class="form-control"
+        value="<%= movie.rating %>"> 
+    </fieldset>
     <br>
-    <input type="submit" value="update movie">
+    <input type="submit" value="update movie" class="form-control btn btn-dark btn-l">
 </form>
 
 <%- include('../partials/footer.ejs') %> 
