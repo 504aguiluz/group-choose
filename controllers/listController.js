@@ -3,9 +3,20 @@ const router = express.Router()
 const Movie = require('../models/movies')
 const Lists = require('../controllers/listController')
 const List = require('../models/lists')
+const authRequired = (req, res, next) => {
+    if (req.session.currentUser) {
+        next()
+        // next is part of express
+        // it does what it says
+        // i.e., go on to the next thing
+    } else {
+        // if there's no user logged in
+        res.send('You must be logged in to do that!')
+    }
+}
 
 // index
-router.get('/', (req, res) => {
+router.get('/', authRequired, (req, res) => {
     List.find({}, (err, allLists) => {
         res.render('lists/lists-index.ejs', {
             lists: allLists
@@ -14,12 +25,12 @@ router.get('/', (req, res) => {
 })
 
 // new
-router.get('/new', (req, res) => {
+router.get('/new', authRequired, (req, res) => {
     res.render('lists/lists-new.ejs')
 })
 
 // show
-router.get('/:id', (req, res) => {
+router.get('/:id', authRequired, (req, res) => {
     List.findById(req.params.id).populate('movies').exec((error, foundList) => {
         if(error){
             console.log(error)
@@ -33,7 +44,7 @@ router.get('/:id', (req, res) => {
 })
 
 // create
-router.post('/', (req, res) => {
+router.post('/', authRequired, (req, res) => {
     List.create(req.body, (error, createdList) => {
         if(error){
             console.log(error)
@@ -45,7 +56,7 @@ router.post('/', (req, res) => {
 })
 
 // add movie to list
-router.post('/addtolist', (req, res) => {
+router.post('/addtolist', authRequired, (req, res) => {
     
     console.log(req.body)
     List.findById(req.body.listId, (error, foundList) => {
@@ -64,7 +75,7 @@ router.post('/addtolist', (req, res) => {
 })
 
 // remove from list
-router.put('/:id/removefromlist', (req, res) => {
+router.put('/:id/removefromlist', authRequired, (req, res) => {
 
     List.findById(req.params.id, (error, foundList) => {
         // const indexOfMovie = foundList.movies.indexOf(req.body.movieId)
@@ -87,7 +98,7 @@ router.put('/:id/removefromlist', (req, res) => {
 })
 
 // delete
-router.delete('/:id', (req, res) => {
+router.delete('/:id', authRequired, (req, res) => {
     List.findByIdAndDelete(req.params.id, (error, deletedList) => {
         if(error){
             console.log(error)
@@ -99,7 +110,7 @@ router.delete('/:id', (req, res) => {
 })
 
 // edit
-router.get('/:id/edit', (req, res) => {
+router.get('/:id/edit', authRequired, (req, res) => {
     List.findById(req.params.id, (error, foundList) => {
         if(error){
             console.log(error)
@@ -113,7 +124,7 @@ router.get('/:id/edit', (req, res) => {
 })
 
 // update
-router.put('/:id', (req, res) => {
+router.put('/:id', authRequired, (req, res) => {
     List.findByIdAndUpdate(req.params.id,req.body, {
         new:true
     },

@@ -2,11 +2,22 @@ const express = require('express')
 const List = require('../models/lists')
 const router = express.Router()
 const Movie = require('../models/movies')
+const authRequired = (req, res, next) => {
+    if (req.session.currentUser) {
+        next()
+        // next is part of express
+        // it does what it says
+        // i.e., go on to the next thing
+    } else {
+        // if there's no user logged in
+        res.send('You must be logged in to do that!')
+    }
+}
 
 // MOVIE CONTROLLERS
 
 // index
-router.get('/', async (req, res) => {
+router.get('/', authRequired, (req, res) => {
 
 console.log(req.query)
 
@@ -34,7 +45,7 @@ console.log(req.query)
 )})
 
 // new
-router.get('/new', (req, res) => {
+router.get('/new', authRequired, (req, res) => {
     res.render('movies/movies-new.ejs')
 })
 
@@ -83,7 +94,7 @@ router.get('/seed', (req, res) => {
 })
 
 // show
-router.get('/:id', (req, res) => {
+router.get('/:id', authRequired, (req, res) => {
     Movie.findById(req.params.id, (error, foundMovie)=>{
         List.find({}, (err, allLists) => {
             res.render('movies/movies-show.ejs', {
@@ -94,8 +105,10 @@ router.get('/:id', (req, res) => {
     })
 })
 
+
+
 // create
-router.post('/', (req, res) => {
+router.post('/', authRequired, (req, res) => {
     Movie.create(req.body, (error, createdMovie) => {
         if(error){
             console.log(error)
@@ -107,7 +120,7 @@ router.post('/', (req, res) => {
 })
 
 // delete
-router.delete('/:id', (req, res) => {
+router.delete('/:id', authRequired, (req, res) => {
     Movie.findByIdAndDelete(req.params.id, (error, deletedMovie) => {
         if(error){
             console.log(error)
@@ -119,7 +132,7 @@ router.delete('/:id', (req, res) => {
 })
 
 // edit
-router.get('/:id/edit', (req, res) => {
+router.get('/:id/edit', authRequired, (req, res) => {
     Movie.findById(req.params.id, (error, foundMovie) => {
         if (error){
             console.log(error)
@@ -134,7 +147,7 @@ router.get('/:id/edit', (req, res) => {
 })
 
 // update
-router.put('/:id', (req, res) => {
+router.put('/:id', authRequired, (req, res) => {
     Movie.findByIdAndUpdate(
         req.params.id,
         req.body,
