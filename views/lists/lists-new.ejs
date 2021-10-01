@@ -2,10 +2,36 @@
 
 <title>create list</title>
 
-<h1>create a list</h1>
-<form action="/lists" method="POST">
-    name: <input type="text" name="name"> <br/>
-    submitted by: <input type="text" name="submittedBy"> <br/>
-    <input type="submit" value="create list">
-</form>
+<%- include('../partials/form1header.ejs') %>
+    <h3
+    class="display-5"
+    >create a list</h3>
+    <form action="/lists" 
+    method="POST"
+    class="lead">
+        <fieldset
+        class="my-4">        
+            name: 
+            <input 
+            type="text" 
+            name="name"
+            class="form-control"> <br/>
+        </fieldset>
+        <fieldset
+        class="my-4">
+        submitted by: 
+        <input 
+        type="text" 
+        name="submittedBy"
+        class="form-control"> <br/>
+        </fieldset>
+        <fieldset
+        class="my-4">
+            <input 
+            type="submit" 
+            value="create list"
+            class="form-control">
+        </fieldset>
+    </form>
+<%- include('../partials/form1footer.ejs') %>  
 <%- include('../partials/footer.ejs') %>  

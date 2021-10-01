@@ -5,9 +5,10 @@ font-family: 'Ubuntu', sans-serif; */
 
 
 body {
-    background-color:rgb(99, 148, 180);
-    /* background-image: url('/css/imgs/body-bkg.jpg'); */
-    opacity: .90;
+    background-blend-mode: darken;
+    background-image: url('imgs/geopattern1.jpg');
+    background-color:rgba(53, 110, 156, 0.911);
+    background-size: cover;
     
 }
 
@@ -36,9 +37,6 @@ a {
 
 /* FORMS */
 .form-cont {
-    /* background-color:grey; */
-    /* background-image: url('imgs/body-bkg.jpg');
-    opacity: 0.5; */
     margin: 40px;
     border: solid 2px black;
     border-radius: 20px;
@@ -49,5 +47,11 @@ form {
 }
 
 .display-4 {
-    margin: 40px
+    margin: 40px;
+    color: rgb(60, 76, 105);
+}
+
+.display-5 {
+    margin: 40px;
+    color: rgb(60, 76, 105);
 }

@@ -2,21 +2,45 @@
 
 <title>login</title>
 
-<h1>login</h1>
 
-<form action="/users/login"
-method="POST">
-    <fieldset>
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username">
-    </fieldset>
-    <fieldset>
-        <label for="password">Password:</label>
-        <input type="password"
-        name="password" id="password">
-    </fieldset>
-    <input type="submit" value="log in">
+<%- include('../partials/form1header.ejs') %>
+
+<h1
+class="display-4"
+>login</h1>
+
+<form 
+action="/users/login"
+method="POST"
+class="lead">
+<fieldset
+class="my-4">
+    <label 
+    for="username"
+    >Username:</label>
+    <input 
+    type="text"
+    class="form-control" 
+    name="username" 
+    id="username">
+</fieldset>
+<fieldset
+class="my-4">
+    <label 
+    for="password"
+    >Password:</label>
+    <input 
+    type="password"
+    name="password" 
+    id="password"
+    class="form-control">
+</fieldset>
+<input 
+type="submit" 
+value="log in"
+class="btn btn-secondary btn-lg" >
 </form>
-<a href="/users/login">need to register first?</a>
+<a href="/users/login">not registered?</a>
 
+<%- include('../partials/form1footer.ejs') %>
 <%- include('../partials/footer.ejs') %>  
