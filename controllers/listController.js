@@ -3,6 +3,7 @@ const router = express.Router()
 const Movie = require('../models/movies')
 const Lists = require('../controllers/listController')
 const List = require('../models/lists')
+const axios = require('axios')
 
 // index
 router.get('/', (req, res) => {
