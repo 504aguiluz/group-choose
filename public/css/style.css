@@ -35,3 +35,19 @@ a {
 }
 
 /* FORMS */
+.form-cont {
+    /* background-color:grey; */
+    /* background-image: url('imgs/body-bkg.jpg');
+    opacity: 0.5; */
+    margin: 40px;
+    border: solid 2px black;
+    border-radius: 20px;
+}
+
+form {
+    margin: 40px;
+}
+
+.display-4 {
+    margin: 40px
+}
