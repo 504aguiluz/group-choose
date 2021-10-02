@@ -61,49 +61,45 @@ An app to help groups decide on which movie to watch
 
 ## WIREFRAMES
 register: <br/>
-![MovieChoose - register page](/group-choose/imgs/wireframes/register@1x.png "register page") <br/>
+![MovieChoose - register page](public/css/wireframes/register@1x.png "register page") <br/>
 login: <br/>
-![MovieChoose - login page](/group-choose/imgs/wireframes/login@1x.png "login page") <br/>
+![MovieChoose - login page](public/css/wireframes/login@1x.png "login page") <br/>
 about: <br/>
-![MovieChoose - about page](/group-choose/imgs/wireframes/about@1x.png "about page") <br/>
+![MovieChoose - about page](public/css/wireframes/about@1x.png "about page") <br/>
 movies index: <br/>
-![MovieChoose - movies index page](/group-choose/imgs/wireframes/movies-index@1x.png "about page") <br/>
+![MovieChoose - movies index page](public/css/wireframes/movies-index@1x.png "about page") <br/>
 movies edit: <br/>
-![MovieChoose - movies edit page](/group-choose/imgs/wireframes/movies-edit@1x.png "movies edt page") <br/>
+![MovieChoose - movies edit page](public/css/wireframes/movies-edit@1x.png "movies edt page") <br/>
 movie list new: <br/>
-![MovieChoose - movies new page](/group-choose/imgs/wireframes/movie-lists-new@1x.png "movie list new page") <br/>
+![MovieChoose - movies new page](public/css/wireframes/movie-lists-new@1x.png "movie list new page") <br/>
 movie lists index: <br/>
-![MovieChoose - movie lists index](/group-choose/imgs/wireframes/movie-lists-index@1x.png "movie lists index page") <br/>
+![MovieChoose - movie lists index](public/css/wireframes/movie-lists-index@1x.png "movie lists index page") <br/>
 movie lists show: <br/>
-![MovieChoose - movie lists show](/group-choose/imgs/wireframes/movie-lists-show@1x.png "movie lists show page") <br/>
-### STRETCH WIREFRAMES
-group choices new: <br/>
-![MovieChoose - movie lists show](/group-choose/imgs/wireframes/group-choices-new@1x.png "group choices new") <br/>
-group choices index: <br/>
-![MovieChoose - movie lists show](/group-choose/imgs/wireframes/group-choices-index@1x.png "group choices index") <br/>
-group choices show: <br/>
-![MovieChoose - movie lists show](/group-choose/imgs/wireframes/group-choices-show@1x.png "group choices ") <br/>
+![MovieChoose - movie lists show](public/css/wireframes/movie-lists-show@1x.png "movie lists show page") <br/>
+
 
 
 ## USER STORIES
-
-> As a user, I want to be able to register and login with a shared group username/password combination. <br />
-> As a user, I want to be able to be logged in on the same username, at the same time as my friends. <br />
-> As a user, I want to be able to create new movie entries, new lists of these movies, and new choices for me and my friends to all contribute to. <br />
-> As a user, I want to be able to delete entries singularly or by groups.<br />
-> As a user, I want to randomize remaining possible choices. <br />
+<ul>
+<li> As a user, I want to be able to register and login with a shared group username/password combination.</li>
+<li> As a user, I want to be able to be logged in on the same username, at the same time as my friends.</li>
+<li> As a user, I want to be able to create new movie entries, new lists of these movies, and new choices for me and my friends to all contribute to.</li>
+<li> As a user, I want to be able to delete entries singularly or by groups</li>
+<li> As a user, I want to randomize remaining possible choices.</li>
+</ul>
 
 ### MVP GOALS
-
-> Build a full CRUD app with 7 RESTful routes. <br/>
-> Build a full-stack application using Node.js, Mongoose, Express and EJS. <br/>
-> Adhere to MVC methodologies.<br/>
-> Deploy online via Heroku.<br/>
+<ul>
+    <li> Build a full CRUD app with 7 RESTful routes.</li>
+    <li> Build a full-stack application using Node.js, Mongoose, Express and EJS.</li>
+    <li> Adhere to MVC methodologies.</li>
+    <li> Deploy online via Heroku.</li>
+</ul>
 
 ### STRETCH GOALS
-> Full professional-quality styling <br/>
-> Use a CSS framework <br/>
-> Use EJS Partials <br/>
-> To be able to register, login and sign out with a username and password. <br/>
-> Use a third party API <br/>
-> Group Choices architecture (aggregating Lists into arrays of Lists) <br/>
+<ul>
+    <li> Full professional-quality styling</li>
+    <li> Use a CSS framework</li>
+    <li> Use EJS Partials</li>
+    <li> Use a third party API</li>
+</ul>
