@@ -2,6 +2,7 @@ const express = require('express')
 const List = require('../models/lists')
 const router = express.Router()
 const Movie = require('../models/movies')
+
 const authRequired = (req, res, next) => {
     if (req.session.currentUser) {
         next()
