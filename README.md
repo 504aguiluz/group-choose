@@ -95,15 +95,15 @@ group choices show: <br/>
 
 ### MVP GOALS
 
-> Build a full CRUD app with 7 RESTful routes.
-> Build a full-stack application using Node.js, Mongoose, Express and EJS.
-> Adhere to MVC methodologies.
-> Deploy online via Heroku.
+> Build a full CRUD app with 7 RESTful routes. <br/>
+> Build a full-stack application using Node.js, Mongoose, Express and EJS. <br/>
+> Adhere to MVC methodologies.<br/>
+> Deploy online via Heroku.<br/>
 
 ### STRETCH GOALS
-> Full professional-quality styling
-> Use a CSS framework
-> Use EJS Partials
-> To be able to register, login and sign out with a username and password.
-> Use a third party API
-> Group Choices architecture (aggregating Lists into arrays of Lists)
+> Full professional-quality styling <br/>
+> Use a CSS framework <br/>
+> Use EJS Partials <br/>
+> To be able to register, login and sign out with a username and password. <br/>
+> Use a third party API <br/>
+> Group Choices architecture (aggregating Lists into arrays of Lists) <br/>
